@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This network was created in GeNIe Academic, which can be used for academic teaching and research purposes only -->
+<smile version="1.0" id="Network1" numsamples="10000" discsamples="10000">
+	<nodes>
+		<decision id="Framework">
+			<state id="React" />
+			<state id="Angular" />
+			<state id="Vue" />
+			<state id="Svelte" />
+		</decision>
+		<cpt id="Node2">
+			<state id="Wysoka" />
+			<state id="Średnia" />
+			<state id="Niska" />
+			<parents>Framework</parents>
+			<probabilities>0.8 0.2 0 0.7 0.3 0 0.6 0.4 0 0.4 0.5 0.1</probabilities>
+		</cpt>
+		<cpt id="Node3">
+			<state id="Wysoka" />
+			<state id="Średnia" />
+			<state id="Niska" />
+			<parents>Framework</parents>
+			<probabilities>0.7 0.3 0 0.6 0.3 0.1 0.6 0.4 0 0.8 0.2 0</probabilities>
+		</cpt>
+		<cpt id="Node4">
+			<state id="Duża" />
+			<state id="Średnia" />
+			<state id="Mała" />
+			<parents>Framework</parents>
+			<probabilities>0.9 0.1 0 0.8 0.2 0 0.7 0.3 0 0.5 0.4 0.1</probabilities>
+		</cpt>
+		<cpt id="Node5">
+			<state id="Łatwa" />
+			<state id="Średnia" />
+			<state id="Trudna" />
+			<parents>Framework</parents>
+			<probabilities>0.7 0.3 0 0.3 0.5 0.2 0.8 0.2 0 0.9 0.1 0</probabilities>
+		</cpt>
+		<decision id="Typ_projektu">
+			<state id="Ecommerce" />
+			<state id="PanelZarzadzania" />
+			<state id="Blog" />
+			<state id="AplikacjaDedykowana" />
+			<parents>Framework</parents>
+		</decision>
+		<cpt id="Node6">
+			<state id="Wysoki" />
+			<state id="Średni" />
+			<state id="Niski" />
+			<parents>Framework Typ_projektu</parents>
+			<probabilities>0.4 0.5 0.1 0.3 0.6 0.1 0.3 0.5 0.2 0.3 0.6 0.1 0.6 0.2 0.2 0.4 0.4 0.2 0.3 0.4 0.3 0.5 0.4 0.1 0.3 0.6000000000000001 0.1 0.3 0.6000000000000001 0.1 0.3 0.6000000000000001 0.1 0.3 0.6000000000000001 0.1 0.2 0.4 0.4 0.2 0.4 0.4 0.2 0.4 0.4 0.2 0.4 0.4</probabilities>
+		</cpt>
+		<cpt id="Node7">
+			<state id="Bogaty" />
+			<state id="Średni" />
+			<state id="Ubogi" />
+			<parents>Framework</parents>
+			<probabilities>0.9 0.1 0 0.8 0.2 0 0.7 0.3 0 0.5 0.4 0.1</probabilities>
+		</cpt>
+		<cpt id="Node8">
+			<state id="Wysokie" />
+			<state id="Średnie" />
+			<state id="Niskie" />
+			<parents>Framework Typ_projektu</parents>
+			<probabilities>0.7 0.3 0 0.8 0.2 0 0.6 0.2 0.2 0.7 0.3 0 0.6 0.4 0 0.6 0.4 0 0.6 0.4 0 0.6 0.4 0 0.7 0.3 0 0.7 0.3 0 0.7 0.3 0 0.7 0.3 0 0.9 0.1 0 0.9 0.1 0 0.9 0.1 0 0.9 0.1 0</probabilities>
+		</cpt>
+		<utility id="Wspólczynnik_skalowalnościo">
+			<parents>Node2</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Wspólczynnik_wydajności">
+			<parents>Node3</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Współczynnik_pomocy_społeczności">
+			<parents>Node4</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Współczynnik_szybkiej_nauki">
+			<parents>Node5</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Współczynnik_kosztu_wdrożęnia">
+			<parents>Node6</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Współczynnik_ekosystemu">
+			<parents>Node7</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<utility id="Współczynnik_SEO">
+			<parents>Node8</parents>
+			<utilities>1 1 0</utilities>
+		</utility>
+		<mau id="Współczynnik_frameworku">
+			<parents>Wspólczynnik_skalowalnościo Wspólczynnik_wydajności Współczynnik_pomocy_społeczności Współczynnik_szybkiej_nauki Współczynnik_kosztu_wdrożęnia Współczynnik_ekosystemu Współczynnik_SEO</parents>
+			<weights>1 1 1 1 1 1 1</weights>
+		</mau>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 5.0.4610.0 ACADEMIC" name="Network1">
+			<node id="Framework">
+				<name>Framework</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>352 46 490 102</position>
+				<barchart active="true" width="162" height="122" />
+			</node>
+			<node id="Node2">
+				<name>Skalowalność</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>31 285 126 337</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node3">
+				<name>Wydajność</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>181 284 268 338</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node4">
+				<name>Pomoc społeczności</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>310 279 419 342</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node5">
+				<name>Szybkość nauki</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>468 287 553 344</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node6">
+				<name>Koszt wdrożenia</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>617 289 705 344</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node7">
+				<name>Ekosystem</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>779 287 867 347</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Node8">
+				<name>Możliwości SEO</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>941 286 1026 345</position>
+				<barchart active="true" width="128" height="72" />
+			</node>
+			<node id="Typ_projektu">
+				<name>Typ projektu</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>772 59 843 85</position>
+				<barchart active="true" width="204" height="110" />
+			</node>
+			<node id="Wspólczynnik_skalowalnościo">
+				<name>Wspólczynnik skalowalnościo</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>23 392 132 452</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Wspólczynnik_wydajności">
+				<name>Wspólczynnik wydajności</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>167 395 268 455</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Współczynnik_pomocy_społeczności">
+				<name>Współczynnik pomocy społeczności</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>305 379 420 467</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Współczynnik_szybkiej_nauki">
+				<name>Współczynnik szybkiej nauki</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>460 394 561 454</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Współczynnik_kosztu_wdrożęnia">
+				<name>Współczynnik kosztu wdrożęnia</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>607 378 722 466</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Współczynnik_frameworku">
+				<name>Współczynnik frameworku</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>454 602 555 662</position>
+				<barchart active="true" width="213" height="131" />
+			</node>
+			<node id="Współczynnik_ekosystemu">
+				<name>Współczynnik ekosystemu</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>775 391 876 451</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+			<node id="Współczynnik_SEO">
+				<name>Współczynnik SEO</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>930 408 1041 440</position>
+				<barchart active="true" width="128" height="64" />
+			</node>
+		</genie>
+	</extensions>
+</smile>
