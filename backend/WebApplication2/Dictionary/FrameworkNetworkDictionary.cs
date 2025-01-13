@@ -8,7 +8,8 @@ namespace WebApplication2.Dictionary
 {
     public static class FrameworkNetworkDictionary
     {
-        public static readonly string ProjectPath = "C:\\Users\\rybci\\Desktop\\SWD\\backend\\WebApplication2\\data\\FrameworkNetwork.xdsl";
+        // public static readonly string ProjectPath = "C:\\Users\\rybci\\Desktop\\SWD\\backend\\WebApplication2\\data\\FrameworkNetwork.xdsl";
+        public static readonly string ProjectPath = "C:\\Users\\Merki\\RiderProjects\\SWD\\backend\\WebApplication2\\data\\FrameworkNetwork.xdsl";
         public static readonly string FrameworkOutcome = "Framework";
         public static readonly string ProjectType = "Typ_projektu";
         public static readonly string ScalabilityFactor = "Wspólczynnik_skalowalnościo";
