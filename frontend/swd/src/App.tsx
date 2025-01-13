@@ -6,6 +6,7 @@ import Paging from "./components/paging";
 import Slider from "./components/slider";
 import { QuestionType } from "./types/questions-type";
 import axios from "axios";
+import { FrameworkResponse } from "./types/framework-response";
 
 const answersType: {
   [key: string]: string[];
@@ -14,6 +15,13 @@ const answersType: {
   degrees: ["Rich", "Medium", "Poor"],
   content: ["High", "Mid", "Low"],
   utility: ["Very high", "High", "Mid", "Low", "Very low"],
+};
+
+const images: Record<string, string> = {
+  React: "/react.png",
+  Angular: "/angular.png",
+  Vue: "/vue.png",
+  Svelte: "/svelte.png",
 };
 
 function App() {
@@ -76,7 +84,7 @@ function App() {
     },
   ]);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [framework, setFramework] = useState<string>("React");
+  const [framework, setFramework] = useState<string>("");
 
   const handleChooseAnswer = (answer: string) => {
     setQuestionnaire((prev: any) => {
@@ -115,20 +123,21 @@ function App() {
         SEOUsage: questionnaire[7].utility.replace(" ", ""),
       },
     };
-    const response = await axios
-      .post("http://localhost:5000/api/framework/result", dataToSend, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-
-    console.log(response);
+    try {
+      const response = await axios.post<FrameworkResponse>(
+        "http://localhost:5000/api/framework/result",
+        dataToSend,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response.data);
+      setFramework(response.data.Framework);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   const handleReset = () => {
@@ -150,6 +159,11 @@ function App() {
       <div className="framework-container">
         <div className="framework-container__box">
           <h1 className="framework-container__header">Framework:</h1>
+          <img
+            src={images[framework]}
+            alt={framework}
+            className="framework-container__img"
+          />
           <p className="framework-container__framework">{framework}</p>
           <button onClick={handleReset} className="submit-btn">
             Reset

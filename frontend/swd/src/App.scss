@@ -152,6 +152,11 @@ body {
   align-items: center;
   background-color: #39a5f7;
 
+  &__img {
+    width: 15rem;
+    height: auto;
+  }
+
   &__header {
     font-size: 5.4rem;
     margin: 0;
@@ -159,7 +164,7 @@ body {
 
   &__framework {
     font-size: 4.6rem;
-    color: #7b00ff;
+    color: #39a5f7;
     font-weight: 700;
     margin: 0;
   }
