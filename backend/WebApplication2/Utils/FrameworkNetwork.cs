@@ -89,7 +89,7 @@ namespace WebApplication2.Utils
             }
         }
 
-        private static FrameworksDTO GetFinalResult(List<string> frameworks)
+        private static List<FrameworksDTO> GetFinalResult(List<string> frameworks)
         {
             var frameworksResult = new List<FrameworksDTO>();
 
