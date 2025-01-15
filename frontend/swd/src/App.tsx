@@ -83,10 +83,10 @@ function App() {
       utility: "Medium",
     },
   ]);
+
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [frameworks, setFrameworks] = useState<FrameworkResponse[] | null>(
-    null
-  );
+  const [frameworks, setFrameworks] = useState<FrameworkResponse[] | null>([]);
+
   const [showMore, setShowMore] = useState<boolean>(false);
 
   const handleChooseAnswer = (answer: string) => {
@@ -167,12 +167,51 @@ function App() {
             alt={frameworks[0].Framework}
             className="framework-container__img"
           />
-          <p className="framework-container__framework">
-            {frameworks[0].Framework}
-          </p>
-          <p className="framework-container__framework">
-            Utility: {frameworks[0].Utility.toFixed(2)}
-          </p>
+          <div className="framework-container__cont">
+            <p className="framework-container__framework">
+              {frameworks[0].Framework}
+            </p>
+            <p className=" framework-container__utility">
+              Utility: {frameworks[0].Utility.toFixed(2)}
+            </p>
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="framework-container__btn"
+            >
+              Show more
+            </button>
+          </div>
+
+          {showMore && (
+            <div className="framework-container__more">
+              <h2 className="framework-container__subheader">
+                Other Frameworks:
+              </h2>
+              <div className="framework-container__items">
+                {frameworks.slice(1).map((framework: FrameworkResponse) => (
+                  <div
+                    key={framework.Framework}
+                    className="framework-container__item"
+                  >
+                    <img
+                      src={images[framework.Framework]}
+                      alt={framework.Framework}
+                      className="framework-container__img--small"
+                    />
+                    <div className="">
+                      <p className="framework-container__framework--small">
+                        {framework.Framework}
+                      </p>
+                      <p className="framework-container__utility  framework-container__utility--small">
+                        Utility: {framework.Utility.toFixed(2)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <button onClick={handleReset} className="submit-btn">
             Reset
           </button>
