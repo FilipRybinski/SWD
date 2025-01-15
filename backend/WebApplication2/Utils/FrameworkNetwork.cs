@@ -14,7 +14,7 @@ namespace WebApplication2.Utils
         private static Network network;
         private static readonly double[] utility = new double[3] { 0.5, 0.5, 0.5 };
 
-        public static FrameworksDTO CreateAndProcessNetwork(FrameworkNetworkCommand command)
+        public static List<FrameworksDTO> CreateAndProcessNetwork(FrameworkNetworkCommand command)
         {
             network = new Network();
             network.ReadFile(FrameworkNetworkDictionary.ProjectPath);
@@ -105,7 +105,7 @@ namespace WebApplication2.Utils
                 });
             }
 
-            return frameworksResult.OrderByDescending(u => u.Utility).ToList()[0];
+            return frameworksResult.OrderByDescending(u => u.Utility).ToList();
         }
 
         private static List<string> GetFrameworks()
