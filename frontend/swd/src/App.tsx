@@ -84,7 +84,10 @@ function App() {
     },
   ]);
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [framework, setFramework] = useState<string>("");
+  const [frameworks, setFrameworks] = useState<FrameworkResponse[] | null>(
+    null
+  );
+  const [showMore, setShowMore] = useState<boolean>(false);
 
   const handleChooseAnswer = (answer: string) => {
     setQuestionnaire((prev: any) => {
@@ -104,7 +107,7 @@ function App() {
   };
 
   const handleSubmit = async () => {
-    let dataToSend = {
+    const dataToSend = {
       ProjectType: questionnaire[0].userAnswer,
       Scalability: questionnaire[1].userAnswer,
       Performance: questionnaire[2].userAnswer,
@@ -124,7 +127,7 @@ function App() {
       },
     };
     try {
-      const response = await axios.post<FrameworkResponse>(
+      const response = await axios.post<FrameworkResponse[]>(
         "http://localhost:5000/api/framework/result",
         dataToSend,
         {
@@ -134,14 +137,14 @@ function App() {
         }
       );
       console.log(response.data);
-      setFramework(response.data.Framework);
+      setFrameworks(response.data);
     } catch (error) {
       console.error("Error:", error);
     }
   };
 
   const handleReset = () => {
-    setFramework("");
+    setFrameworks(null);
     setCurrentQuestion(0);
     setQuestionnaire((prev: any) => {
       const newQuestionnaire = [...prev];
@@ -154,17 +157,22 @@ function App() {
     });
   };
 
-  if (framework) {
+  if (frameworks !== null) {
     return (
       <div className="framework-container">
         <div className="framework-container__box">
           <h1 className="framework-container__header">Framework:</h1>
           <img
-            src={images[framework]}
-            alt={framework}
+            src={images[frameworks[0].Framework]}
+            alt={frameworks[0].Framework}
             className="framework-container__img"
           />
-          <p className="framework-container__framework">{framework}</p>
+          <p className="framework-container__framework">
+            {frameworks[0].Framework}
+          </p>
+          <p className="framework-container__framework">
+            Utility: {frameworks[0].Utility.toFixed(2)}
+          </p>
           <button onClick={handleReset} className="submit-btn">
             Reset
           </button>
